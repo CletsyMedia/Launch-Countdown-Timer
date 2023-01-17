@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@600;700&display=swap');
+
+:root{
+    /* Primary */
+
+    --Grayish-blue: hsl(237, 18%, 59%);
+    --Soft-red: hsl(345, 95%, 68%);
+
+    /* Neutral */
+
+    --White: hsl(0, 0%, 100%);
+    --Dark-desaturated-blue: hsl(236, 21%, 26%);
+    --Very-dark-blue: hsl(235, 16%, 14%);
+    --Very-dark-mostly-black-blue: hsl(234, 17%, 12%);
+}
+
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type:none;
+}
+img{
+    width: 100%;
+    display: block;
+}
+body {
+    font-family: 'Red Hat Text', sans-serif;
+    font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    background-image: url(../images/bg-stars.svg);
+    background-color:var(--Very-dark-mostly-black-blue);
+}
+main{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+h2 {
+    position: absolute;
+    top: 15%;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--White);
+    letter-spacing: 6px;
+    margin: 0 16px;
+}
+.countdown {
+    display: flex;
+    gap: 10px;
+    text-align: center;
+}
+.flip-card {
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    box-shadow: 0 13px 0 0 black;
+    position: relative;
+}
+.top-flip,
+.bottom-flip {
+    position: absolute;
+}
+.top-flip {
+    transform-origin: bottom;
+    transform: rotateX(0deg);
+    animation: flip-top 0.5s ease-in forwards;
+}
+.bottom-flip {
+    bottom: 0;
+    animation: flip-bottom 0.5s ease-out 0.5s;
+    transform-origin: top;
+    transform: rotateX(90deg);
+}
+.top,
+.bottom,
+.top-flip,
+.bottom-flip {
+    height: 33px;
+    width: 80px;
+    padding: 21px 16px;
+    color: var(--Soft-red);
+    overflow: hidden;
+    text-align: center;
+}
+.top,
+.top-flip {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.7);
+    background-color: rgb(48, 50, 78);
+}
+.bottom,
+.bottom-flip {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: var(--Dark-desaturated-blue);
+    box-shadow: 0 2px rgb(71, 83, 115, 0.2) inset;
+}
+p {
+    text-transform: uppercase;
+    font-weight:lighter;
+    letter-spacing: 1.5px;
+    color: var(--Grayish-blue);
+    margin-top: 40px;
+}
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    overflow: hidden;
+}
+.footer > img {
+    width: 250%;
+}
+.media {
+    position: absolute;
+    bottom: 35%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+}
+.media > span {
+    margin-right: 10px;
+    cursor: pointer;
+    height: min-content;
+}
+.media > span:hover,
+.media > span:active {
+    filter: invert(60%) sepia(43%) saturate(6017%) hue-rotate(315deg) brightness(109%) contrast(97%);
+}
+.attribution {
+    position: absolute;
+    left: 50%;
+    bottom: 15px;
+    transform: translateX(-50%);
+    font-size: 0.8rem;
+    width: 95%;
+    text-align: center;
+    font-size: 11px;
+    color: var(--White);
+}
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
+.attribution a:hover{
+    color: var(--Soft-red);
+}
+.title {
+    margin-top: 1.2rem;
+    font-size: 0.8rem;
+}
+@keyframes flip-top {
+    to {
+        transform: rotateX(90deg);
+    }
+}
+@keyframes flip-bottom {
+    to {
+        transform: rotateX(0deg);
+    }
+}
+@media (min-width:550px) {
+    .flip-card {
+        font-size: 5rem;
+    }
+    .countdown {
+        gap: 35px;
+    }
+    .top,
+    .bottom,
+    .top-flip,
+    .bottom-flip {
+        height: 80px;
+        width: 150px;
+        padding: 27px 16px;
+    }
+    .footer > img {
+        width: 100%;
+    }
+    .media > span {
+        margin-right: 25px;
+    }
+    .attribution {
+        font-size: 1rem;
+        bottom: 1vw;
+    }
+}
